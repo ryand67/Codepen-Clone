@@ -8,6 +8,9 @@ const cors = require('cors');
 app.use(morgan('dev'));
 app.use(cors());
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('*', (req, res) => {
